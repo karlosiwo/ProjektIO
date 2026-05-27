@@ -1,0 +1,41 @@
+
+Opis elementów diagramu stanu integracji zewnętrznej
+
+Diagram ten modeluje cykl życia encji odpowiedzialnej za zewnętrzne połączenie konta (np. instancji klasy `KontoZewnetrzne` przypisanej do `Profilu`).
+
+1. Stany :
+
+* Niepołączone: Stan bazowy integracji. Oznacza, że profil gracza istnieje, ale nie posiada autoryzowanego połączenia ze Steam/Discord. W tym stanie dostępna jest opcja nawiązania połączenia.
+
+
+* Autoryzacja: Stan przejściowy. Oznacza, że system wysłał użytkownika do zewnętrznego dostawcy  i oczekuje na token zwrotny. Trwa weryfikacja danych logowania oraz zgód.
+
+
+* Aktualizacja Danych: Kolejny stan przejściowy. Zewnętrzne API autoryzowało użytkownika i odbywa się asynchroniczne pobieranie statystyk, rang oraz osiągnięć.
+
+
+* Połączone: Stan docelowy (operacyjny). Integracja jest aktywna, interfejs wyświetla status "Connected" , a dopasowywanie (matching) korzysta ze zweryfikowanych danych.
+
+
+
+2. Przejścia:
+
+ 
+rozpocznijAutoryzacje():Wywołanie metody inicjującej proces, powoduje przejście z `Niepołączone` do `Autoryzacja`.
+
+
+ 
+odmowa / błąd]:Warunek sprawdzający ścieżkę alternatywną z przypadku użycia (Błąd API lub odmowa zgody ). Jeśli zachodzi, proces wraca do stanu `Niepołączone`.
+
+
+ 
+autoryzacja udana] pobierzDane():Po pomyślnym zalogowaniu się do zewnętrznego API proces zmienia stan i wywołuje akcję pobrania danych z interfejsu (mapowanie na metodę `pobierzDaneGracza()` ).
+
+
+pobieranie zakończone]:Warunek sprawdzający zakończenie przetwarzania danych. Po jego spełnieniu stan zmienia się na operacyjny.
+rozłączKonto():Przejście ze stanu docelowego z powrotem do bazowego. Reprezentuje akcję ręcznego usunięcia integracji z platformą (wymagane w kompletnej maszynie stanów).
+
+3. Pseudostany:
+
+Stan początkowy :Miejsce wejścia dla maszyny stanów. Aktywuje się w momencie tworzenia nowego konta gracza (wszystkie platformy domyślnie znajdują się wtedy w stanie `Niepołączone`).
+Stan końcowy :Wyzwalany wywołaniem zdarzenia `usuńProfil()`. Kończy cykl życia maszyny stanów i usuwa wszelkie integracje razem z profilem gracza z systemu.
