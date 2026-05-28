@@ -1,0 +1,14 @@
+Opis diagramu stanów – „Zgłoszenie”
+
+
+Proces rozpoczyna się od utworzenia nowego zgłoszenia przez użytkownika. Następnie zgłoszenie przechodzi do stanu „Weryfikowane”, w którym system sprawdza poprawność danych i możliwość zapisania zgłoszenia.
+
+Jeżeli zapis zakończy się niepowodzeniem, zgłoszenie przechodzi do stanu „Błąd zapisu”, po czym proces zostaje zakończony. W przypadku poprawnego zapisu zgłoszenie trafia do stanu „Zapisane”, a następnie do automatycznej analizy AI.
+
+W stanie „Analizowane przez AI” system sprawdza poziom ryzyka zgłoszenia. Jeśli wykryte zostanie wysokie ryzyko lub duża liczba zgłoszeń dotyczących użytkownika, zgłoszenie przechodzi do stanu „Pilne”. Następnie trafia do kolejki moderatora. W przypadku braku wysokiego ryzyka zgłoszenie trafia bezpośrednio do kolejki moderatora.
+
+Po pobraniu zgłoszenia przez moderatora obiekt przechodzi do stanu „W trakcie moderacji”. Moderator analizuje zgłoszenie oraz dostępne dowody i podejmuje decyzję końcową.
+
+Jeżeli zgłoszenie zostanie uznane za zasadne, przechodzi do stanu „Zamknięte jako zasadne”, co oznacza nałożenie kary, np. bana lub ograniczenia konta. W przeciwnym przypadku zgłoszenie przechodzi do stanu „Zamknięte jako bezpodstawne”, co oznacza brak konsekwencji dla zgłoszonego użytkownika.
+
+Oba końcowe stany prowadzą do zakończenia cyklu życia zgłoszenia.
