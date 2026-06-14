@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>800</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>title=Połączenie konta Steam/Discord
+obj=Gracz~g
+obj=System~s
+obj=Zewnętrzne API~api
+
+g-&gt;s : 1. Wybiera platformę (Steam/Discord)
+s-&gt;g : 2. Przekierowuje użytkownika
+g-&gt;api : 3. Loguje się i wyraża zgodę na dostęp
+api-&gt;s : 4. Potwierdza autoryzację i nawiązuje połączenie
+s-&gt;api : 5. Żąda pobrania danych gracza
+api-&gt;s : 6. Zwraca dane (statystyki, ranga, osiągnięcia)
+s-&gt;g : 7. Aktualizuje profil i wyświetla status "Connected"</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
