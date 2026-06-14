@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>220</x>
+      <y>20</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Serwery Zewnętrzne
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+Platformy Gamingowe
+
+&lt;&lt;artifact&gt;&gt; Steam API
+&lt;&lt;artifact&gt;&gt; Discord API</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>680</x>
+      <y>20</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+System Płatności
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+Bramka Transakcyjna
+
+&lt;&lt;artifact&gt;&gt; PaymentGateway</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>20</x>
+      <y>260</y>
+      <w>260</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Urządzenie mobilne Gracza
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+System iOS / Android
+--
+&lt;&lt;artifact&gt;&gt; GamerMatch.apk
+&lt;&lt;artifact&gt;&gt; GamerMatch.ipa</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>420</x>
+      <y>220</y>
+      <w>320</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Serwer Aplikacji (Chmura)
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+Java Spring Boot
+--
+&lt;&lt;artifact&gt;&gt; MatchmakingService.jar
+&lt;&lt;artifact&gt;&gt; ChatService.jar
+&lt;&lt;artifact&gt;&gt; ModerationService.jar
+&lt;&lt;artifact&gt;&gt; IntegrationService.jar
+&lt;&lt;artifact&gt;&gt; PaymentService.jar</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>880</x>
+      <y>260</y>
+      <w>230</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Serwer AI
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+Środowisko ML
+--
+&lt;&lt;artifact&gt;&gt; ModulAnalizyAI</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>20</x>
+      <y>540</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Urządzenie Moderatora
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+Przeglądarka Web / Desktop
+--
+&lt;&lt;artifact&gt;&gt; PanelModeratora</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>450</x>
+      <y>540</y>
+      <w>260</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;device&gt;&gt;
+Klaster Baz Danych
+--
+&lt;&lt;executionEnvironment&gt;&gt;
+PostgreSQL
+--
+&lt;&lt;artifact&gt;&gt; ProfileDB
+&lt;&lt;artifact&gt;&gt; TransakcjeDB
+&lt;&lt;artifact&gt;&gt; ZgloszeniaDB</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>300</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;&lt;HTTPS / WSS&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>130</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+&lt;&lt;HTTPS / REST&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;90.0</additional_attributes>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>130</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;&lt;HTTPS / REST&gt;&gt;</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>300</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;&lt;gRPC&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>430</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;&lt;HTTPS&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;210.0;10.0</additional_attributes>
+  </element>
+
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>430</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;&lt;TCP/IP / JDBC&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>
